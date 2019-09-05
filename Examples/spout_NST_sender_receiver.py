@@ -119,7 +119,7 @@ def main():
         
         # receive texture
         # Its signature in c++ looks like this: bool pyReceiveTexture(const char* theName, unsigned int theWidth, unsigned int theHeight, GLuint TextureID, GLuint TextureTarget, bool bInvert, GLuint HostFBO);
-        spoutReceiver.pyReceiveTexture(receiverName, spoutReceiverWidth, spoutReceiverHeight, textureReceiveID, GL_TEXTURE_2D, False, 0)
+        spoutReceiver.pyReceiveTexture(receiverName, spoutReceiverWidth, spoutReceiverHeight, int(textureReceiveID), GL_TEXTURE_2D, False, 0)
         
         glBindTexture(GL_TEXTURE_2D, textureReceiveID)
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE)
@@ -179,7 +179,7 @@ def main():
 
         # Send texture to spout...
         # Its signature in C++ looks like this: bool SendTexture(GLuint TextureID, GLuint TextureTarget, unsigned int width, unsigned int height, bool bInvert=true, GLuint HostFBO = 0);
-        spoutSender.SendTexture(textureStyleID, GL_TEXTURE_2D, spoutSenderWidth, spoutSenderHeight, False, 0)
+        spoutSender.SendTexture(int(textureStyleID), GL_TEXTURE_2D, spoutSenderWidth, spoutSenderHeight, False, 0)
         # FPS = 1 / time to process loop
         print("FPS: ", 1.0 / (time.time() - start_time)) 
 

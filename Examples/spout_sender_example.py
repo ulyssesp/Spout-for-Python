@@ -118,7 +118,7 @@ def main():
 
         # send texture to Spout
         # Its signature in C++ looks like this: bool SendTexture(GLuint TextureID, GLuint TextureTarget, unsigned int width, unsigned int height, bool bInvert=true, GLuint HostFBO = 0);
-        spoutSender.SendTexture(senderTextureID, GL_TEXTURE_2D, spoutSenderWidth, spoutSenderHeight, True, 0)
+        spoutSender.SendTexture(int(senderTextureID), GL_TEXTURE_2D, spoutSenderWidth, spoutSenderHeight, True, 0)
        
         # update display 
         pygame.display.flip()
